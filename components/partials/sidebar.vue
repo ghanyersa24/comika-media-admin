@@ -2,10 +2,10 @@
   <div class="main-sidebar">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <nuxt-link to="/">Comika Media</nuxt-link>
+        <nuxt-link to="/">Admin Panel</nuxt-link>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-        <nuxt-link to="/">CM</nuxt-link>
+        <nuxt-link to="/">AP</nuxt-link>
       </div>
       <ul class="sidebar-menu">
         <li v-for="(menu,i) in menus" :key="i">
@@ -23,8 +23,8 @@ export default {
     return {
       menus: [
         { icon: "fab fa-dashcube", name: "Dashboard", link: "/" },
-        { icon: "fas fa-newspaper", name: "Articles", link: "/articles" },
-        { icon: "fas fa-ad", name: "Advertisement", link: "/advertisement" },
+        { icon: "fas fa-newspaper", name: "Article", link: "/article" },
+        { icon: "fas fa-ad", name: "Jumbotron", link: "/jumbotron" },
         { icon: "fas fa-users", name: "Comika", link: "/comika" },
         { icon: "fas fa-users-cog", name: "Users", link: "/users" },
       ],

@@ -3,7 +3,7 @@
     <table id="table_id" class="table table-hover table-striped">
       <thead>
         <tr>
-          <th>Action</th>
+          <th width="13%">Action</th>
           <th class="text-capitalize" v-for="(item,i) in thead" :key="i">{{item}}</th>
         </tr>
       </thead>

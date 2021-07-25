@@ -40,6 +40,7 @@ export default {
         }
         return request;
       } catch (err) {
+        this.$nuxt.$loading.finish();
         this.$toast.show(err.response.data.msg);
       }
     },

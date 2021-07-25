@@ -38,7 +38,6 @@ export default {
         return this.val;
       },
       set: function (value) {
-        console.log(value);
         if (value) this.$emit("get", true);
         else this.$emit("get", false);
       },
