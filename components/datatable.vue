@@ -43,7 +43,7 @@ export default {
         "Apakah kamu yakin ingin menghapus " + row[this.attrDel]
       );
       if (isConfirmed) {
-        const request = await this.requestDel({ url: "users/" + row.id });
+        const request = await this.requestDel({ url: this.url + "/" + row.id });
         if (request) {
           this.$emit("onDelete", request);
         }

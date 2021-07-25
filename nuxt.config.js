@@ -36,7 +36,8 @@ export default {
           "https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
       },
       { rel: "stylesheet", href: "/assets/css/style.css" },
-      { rel: "stylesheet", href: "/assets/css/components.css" }
+      { rel: "stylesheet", href: "/assets/css/components.css" },
+      { rel: "stylesheet", href: "/assets/css/spinkit.css" }
     ],
     script: [
       { src: "https://code.jquery.com/jquery-3.3.1.min.js" },
@@ -94,6 +95,7 @@ export default {
       }
     }
   },
+  loading: "~/components/loading.vue",
   auth: {
     strategies: {
       local: {
