@@ -35,8 +35,8 @@ export default {
         href:
           "https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
       },
-      { rel: "stylesheet", href: "./assets/css/style.css" },
-      { rel: "stylesheet", href: "./assets/css/components.css" }
+      { rel: "stylesheet", href: "/assets/css/style.css" },
+      { rel: "stylesheet", href: "/assets/css/components.css" }
     ],
     script: [
       { src: "https://code.jquery.com/jquery-3.3.1.min.js" },
@@ -66,7 +66,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~/plugins/mixins.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -81,7 +81,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/auth-next",
-    "@nuxtjs/toast"
+    "@nuxtjs/toast",
+    "vue-sweetalert2/nuxt"
   ],
   toast: {
     position: "bottom-center",
