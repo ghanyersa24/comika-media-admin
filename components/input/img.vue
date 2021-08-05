@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-9">
       <input type="file" accept="image/jpeg, image/png" @change="change" :placeholder="placeholder" :disabled="disabled" :readonly="disabled" class="form-control" :required="!noRequired">
-      <img :src="val" :alt="name" class="w-100 mt-2">
+      <img v-if="val" :src="val" :alt="name" class="w-100 mt-2">
     </div>
   </div>
 </template>
