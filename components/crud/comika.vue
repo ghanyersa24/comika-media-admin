@@ -37,15 +37,16 @@ export default {
         payload.photo = this.file;
       }
       if (this.$route.params.id) {
-        const request = await this.requestPut({
+        const request = await this.requestFormData({
           url: "comika",
           data: { id: this.$route.params.id, ...payload },
+          action: "update",
         });
         if (request) this.$router.go(-1);
       } else {
         const request = await this.requestFormData({
           url: "comika",
-          data: this.payload,
+          data: payload,
         });
         if (request) this.$router.go(-1);
       }

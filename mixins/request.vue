@@ -20,7 +20,7 @@ export default {
         this.$toast.show(err.response.data.msg);
       }
     },
-    async requestFormData({ url, data, notify = true }) {
+    async requestFormData({ url, data, notify = true, action = "post" }) {
       try {
         this.$nuxt.$loading.start();
         const dataPayload = new FormData();
@@ -32,9 +32,16 @@ export default {
             }
           } else dataPayload.append(key, data[key]);
         }
-        const request = await this.$axios.$post(url, dataPayload, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
+        let request;
+        if (action == "post") {
+          request = await this.$axios.$post(url, dataPayload, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+        } else {
+          request = await this.$axios.$put(url, dataPayload, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+        }
         if (notify) {
           this.$toast.show(request.msg);
         }

@@ -56,15 +56,16 @@ export default {
         payload.banner = this.file;
       }
       if (this.$route.params.id) {
-        const request = await this.requestPut({
+        const request = await this.requestFormData({
           url: "article",
           data: { id: this.$route.params.id, ...payload },
+          action: "update",
         });
         if (request) this.$router.go(-1);
       } else {
         const request = await this.requestFormData({
           url: "article",
-          data: this.payload,
+          data: payload,
         });
         if (request) this.$router.go(-1);
       }

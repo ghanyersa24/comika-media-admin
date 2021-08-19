@@ -41,15 +41,16 @@ export default {
         payload.img = this.file;
       }
       if (this.$route.params.id) {
-        const request = await this.requestPut({
+        const request = await this.requestFormData({
           url: "jumbotron",
           data: { id: this.$route.params.id, ...payload },
+          action: "update",
         });
         if (request) this.$router.go(-1);
       } else {
         const request = await this.requestFormData({
           url: "jumbotron",
-          data: this.payload,
+          data: payload,
         });
         if (request) this.$router.go(-1);
       }
