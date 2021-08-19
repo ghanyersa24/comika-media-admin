@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="doSubmit">
-      <form-save title="Comika" />
+      <form-save title="Redaktur" />
       <input-text name="name" :val="payload.name" @get="(val)=>payload.name=val" />
       <input-check label="Verified" :val="payload.verified" @get="(val)=>payload.verified=val" />
       <input-img name="photo" :no-required="payload.photo" :val="payload.photo" @get="(val)=>{file=val.file;payload.photo=val.url}" />

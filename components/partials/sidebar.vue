@@ -25,7 +25,7 @@ export default {
         { icon: "fab fa-dashcube", name: "Dashboard", link: "/" },
         { icon: "fas fa-newspaper", name: "Article", link: "/article" },
         { icon: "fab fa-adversal", name: "Jumbotron", link: "/jumbotron" },
-        { icon: "fas fa-users", name: "Comika", link: "/comika" },
+        { icon: "fas fa-users", name: "Redaktur", link: "/comika" },
         { icon: "fas fa-users-cog", name: "Users", link: "/users" },
       ],
     };

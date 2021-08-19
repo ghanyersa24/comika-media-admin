@@ -1,6 +1,6 @@
 <template>
   <div>
-    <crud-header title="Comika" url="comika" />
+    <crud-header title="Redaktur" url="comika" />
     <datatable url="comika" :thead="header" :data="rows" attrDel="name" @onDelete="(val)=>{getAll()}" />
   </div>
 </template>
