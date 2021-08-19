@@ -77,7 +77,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: ["@nuxtjs/moment"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -142,7 +142,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   server: {
-    host: "0",
+    // host: "0",
     port: 3005
   }
 };

@@ -27,6 +27,7 @@ export default {
         item.access = access;
       });
       this.rows = data;
+      this.renderTable();
     },
   },
   fetch() {

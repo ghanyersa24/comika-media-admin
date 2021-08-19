@@ -28,6 +28,7 @@ export default {
           : null;
       });
       this.rows = data;
+      this.renderTable();
     },
   },
   fetch() {

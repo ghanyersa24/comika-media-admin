@@ -10,7 +10,7 @@
       <tbody>
         <tr v-for="(row, i) in data" :key="i">
           <td>
-            <nuxt-link :to="'/'+url+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-eye"></i></nuxt-link>
+            <nuxt-link :to="'/'+url+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-edit"></i></nuxt-link>
             <button @click="onDelete(row)" type="button" class="btn btn-outline-danger"> <i class="fas fa-trash"></i> </button>
           </td>
           <td v-for="(item,idx) in thead" :key="idx" v-html="row[item]"></td>

@@ -16,6 +16,7 @@ export default {
     async getAll() {
       const data = await this.requestGet({ url: "/users" });
       this.rows = data;
+      this.renderTable();
     },
   },
   fetch() {
