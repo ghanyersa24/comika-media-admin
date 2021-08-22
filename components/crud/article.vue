@@ -4,11 +4,12 @@
       <form-save title="Article" />
       <input-check name="Premium Content" label="Premium" :val="payload.isPremium" @get="(val)=>payload.isPremium=val" />
       <input-check name="Publish" label="Publish" :val="payload.isPublish" @get="(val)=>payload.isPublish=val" />
-      <input-text name="Date Publish" type="datetime-local" :val="payload.date" @get="(val)=>payload.date=val" />
+      <input-text name="Published At" type="datetime-local" :val="payload.publishedAt" @get="(val)=>payload.publishedAt=val" />
       <input-text name="title" :val="payload.title" @get="(val)=>payload.title=val" />
       <input-options name="comika" :options="listComika" :val="payload.comikaId" @get="(val)=>payload.comikaId=val" />
       <input-cms name="article" :val="payload.content" @get="(val)=>payload.content=val" />
       <input-img name="photo" :no-required="payload.banner?true:false" :val="payload.banner" @get="(val)=>{file=val.file;payload.banner=val.url}" />
+      <input-text name="attribution" :val="payload.attribution" @get="(val)=>payload.attribution=val" />
     </form>
 
   </div>
@@ -26,7 +27,8 @@ export default {
         isPremium: false,
         isPublish: false,
         banner: null,
-        date: this.$moment(),
+        attribution: null,
+        publishedAt: this.$moment().format("YYYY-MM-DDTHH:mm"),
       },
     };
   },
@@ -47,11 +49,15 @@ export default {
         url: "article/" + this.$route.params.id,
       });
       this.payload = request;
-      this.payload.date = this.$moment(request.date).format("YYYY-MM-DDThh:mm");
+      this.payload.publishedAt = this.$moment(request.publishedAt).format(
+        "YYYY-MM-DDTHH:mm"
+      );
     },
     async doSubmit() {
       const payload = this.payload;
-      payload.date = this.$moment(payload.date).format("YYYY-MM-DD hh:mm");
+      payload.publishedAt = this.$moment(payload.publishedAt).format(
+        "YYYY-MM-DD HH:mm"
+      );
       if (typeof this.file == "object") {
         payload.banner = this.file;
       }

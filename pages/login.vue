@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
           <div class="login-brand">
-            <img src="/comikamedia.png" alt="logo"  class="rounded">
+            <img src="/comikamedia.png" alt="logo" class="rounded">
           </div>
 
           <div class="card card-primary">
@@ -27,8 +27,13 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                    Login
+                  <button type="submit" :disabled="isLoading" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    <div v-if="isLoading" class="spinner-border text-light" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                    <div v-else>
+                      Login
+                    </div>
                   </button>
                 </div>
               </form>
@@ -44,6 +49,7 @@ export default {
   layout: "clean",
   data() {
     return {
+      isLoading: false,
       login: {
         email: "",
         password: "",
@@ -53,12 +59,15 @@ export default {
   methods: {
     async userLogin() {
       try {
+        this.isLoading = true;
         let response = await this.$auth.loginWith("local", {
           data: this.login,
         });
+        this.isLoading = false;
         this.$router.push("/");
       } catch (err) {
-        this.$toast.show(err.message);
+        this.isLoading = false;
+        this.$toast.show(err.response.data.msg);
       }
     },
   },

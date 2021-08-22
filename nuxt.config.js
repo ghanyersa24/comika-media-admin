@@ -126,7 +126,7 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "https://service-comika.herokuapp.com/api/admin"
+    baseURL: "https://api.comika.media/api/admin"
   },
   router: {
     middleware: ["auth"]

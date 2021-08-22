@@ -25,6 +25,8 @@ export default {
           access += `<i style="font-size:1.2em;color:gold" class="fas fa-desktop ml-1"></i>`;
         }
         item.access = access;
+        if (item.link)
+          item.link = `<a href="${item.link}" target="_blank">${item.link}</a>`;
       });
       this.rows = data;
       this.renderTable();

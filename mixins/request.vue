@@ -45,6 +45,7 @@ export default {
         if (notify) {
           this.$toast.show(request.msg);
         }
+        this.$nuxt.$loading.finish();
         return request;
       } catch (err) {
         this.$nuxt.$loading.finish();
