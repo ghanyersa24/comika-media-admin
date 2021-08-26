@@ -20,7 +20,9 @@ export default {
       });
       data.map((item) => {
         item.comika = `${item.Comika.name}`;
-        item.publishedAt = this.$moment(item.publishedAt).format("DD MMMM YYYY HH:mm");
+        item.publishedAt = this.$moment(item.publishedAt)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
         item.premium = item.isPremium
           ? `<i style="font-size:1.2em;color:gold" class="fas fa-star"></i>`
           : null;
