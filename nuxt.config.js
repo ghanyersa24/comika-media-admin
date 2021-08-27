@@ -126,7 +126,7 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "https://api.comika.media/api/admin"
+    baseURL: "https://service-comika.erokuapp.com//api/admin"
     // baseURL: "http://localhost:3010/api/admin"
   },
   router: {
