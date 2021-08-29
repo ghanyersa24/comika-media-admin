@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      header: ["title", "comika", "premium", "publish", "publishedAt"],
+      header: ["title", "tag", "premium", "publish", "publishedAt", "reporter"],
       rows: [],
     };
   },
@@ -20,6 +20,7 @@ export default {
       });
       data.map((item) => {
         item.comika = `${item.Comika.name}`;
+        item.tag = item.Tag ? item.Tag.name : null;
         item.publishedAt = this.$moment(item.publishedAt)
           .subtract(7, "hours")
           .format("DD MMMM YYYY HH:mm");
