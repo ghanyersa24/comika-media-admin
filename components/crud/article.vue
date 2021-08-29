@@ -6,7 +6,7 @@
       <input-check name="Publish" label="Publish" :val="payload.isPublish" @get="(val)=>payload.isPublish=val" />
       <input-text name="Published At" type="datetime-local" :val="payload.publishedAt" @get="(val)=>payload.publishedAt=val" />
       <input-text name="title" :val="payload.title" @get="(val)=>payload.title=val" />
-      <input-options name="comika" :options="listComika" :val="payload.comikaId" @get="(val)=>payload.comikaId=val" />
+      <input-options name="Reporter" :options="listComika" :val="payload.comikaId" @get="(val)=>payload.comikaId=val" />
       <input-cms name="article" :val="payload.content" @get="(val)=>payload.content=val" />
       <input-img name="photo" :no-required="payload.banner?true:false" :val="payload.banner" @get="(val)=>{file=val.file;payload.banner=val.url}" />
       <input-text name="attribution" :val="payload.attribution" @get="(val)=>payload.attribution=val" />
