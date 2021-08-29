@@ -90,7 +90,7 @@ export default {
             const {
               data: { data },
             } = await axios.post(
-              "https://service-comika.herokuapp.com/api/admin/source",
+              "https://api.comika.media/api/admin/source",
               formData,
               {
                 headers: {
