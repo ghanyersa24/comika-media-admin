@@ -10,7 +10,7 @@
       <input-options name="Reporter" :options="listComika" :val="payload.comikaId" @get="(val)=>payload.comikaId=val" />
       <input-cms name="article" :val="payload.content" @get="(val)=>payload.content=val" />
       <input-img name="photo" :no-required="payload.banner?true:false" :val="payload.banner" @get="(val)=>{file=val.file;payload.banner=val.url}" />
-      <input-text no-required  name="attribution" :val="payload.attribution" @get="(val)=>payload.attribution=val" />
+      <input-text no-required name="attribution" :val="payload.attribution" @get="(val)=>payload.attribution=val" />
     </form>
 
   </div>
@@ -59,9 +59,9 @@ export default {
         url: "article/" + this.$route.params.id,
       });
       this.payload = request;
-      this.payload.publishedAt = this.$moment(request.publishedAt).format(
-        "YYYY-MM-DDTHH:mm"
-      );
+      this.payload.publishedAt = this.$moment(request.publishedAt)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
     },
     async doSubmit() {
       const payload = this.payload;
