@@ -18,8 +18,8 @@ export default {
         url: "/article",
         params: { limit: 9999999999 },
       });
-      data.map((item) => {
-        item.comika = `${item.Comika.name}`;
+      await data.map((item) => {
+        item.reporter = `${item.Comika ? item.Comika.name : null}`;
         item.tag = item.Tag ? item.Tag.name : null;
         item.publishedAt = this.$moment(item.publishedAt)
           .subtract(7, "hours")
