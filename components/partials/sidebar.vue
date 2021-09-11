@@ -24,8 +24,15 @@ export default {
       menus: [
         { icon: "fab fa-dashcube", name: "Dashboard", link: "/" },
         { icon: "fas fa-newspaper", name: "Article", link: "/article" },
-        { icon: "fas fa-tags", name: "Tags", link: "/tags" },
+        { icon: "fas fa-tags", name: "Tags - Article", link: "/tags" },
         { icon: "fab fa-adversal", name: "Jumbotron", link: "/jumbotron" },
+        // { icon: "fas fa-tag", name: "Category - Store", link: "/category" },
+        // {
+        //   icon: "fab fa-product-hunt",
+        //   name: "Product - Store",
+        //   link: "/product",
+        // },
+        // { icon: "fas fa-images", name: "Image - Source", link: "/image-source" },
         { icon: "fas fa-users", name: "Redaktur", link: "/comika" },
         { icon: "fas fa-users-cog", name: "Users", link: "/users" },
       ],

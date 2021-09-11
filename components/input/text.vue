@@ -20,7 +20,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    val: String,
+    val: [String, Number],
     type: {
       type: String,
       default: "text",
