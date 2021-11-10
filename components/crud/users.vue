@@ -6,7 +6,7 @@
       <input-text name="email" type="email" :val="payload.email" @get="(val)=>payload.email=val" />
       <input-text name="phone" type="number" :val="payload.phone" @get="(val)=>payload.phone=val" />
       <input-options name="role" :options="roles" :val="payload.role" @get="(val)=>payload.role=val" />
-      <input-options name="gender" :options="gender" :val="payload.gender" @get="(val)=>payload.gender=val" />
+      <!-- <input-options name="gender" :options="gender" :val="payload.gender" @get="(val)=>payload.gender=val" /> -->
     </form>
 
   </div>
