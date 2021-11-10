@@ -3,15 +3,15 @@
     <div class="d-flex justify-content-center vh-100" v-if="loading">
       <div class="d-flex align-items-center">
         <div class="sk-grid">
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
-          <div class="sk-grid-cube bg-warning"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
+          <div class="sk-grid-cube bg-primary"></div>
         </div>
       </div>
     </div>

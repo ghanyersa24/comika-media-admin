@@ -6,6 +6,9 @@
 </template>
 <script>
 export default {
+  created() {
+    this.$router.push("/");
+  },
   data() {
     return {
       header: ["name", "type"],
