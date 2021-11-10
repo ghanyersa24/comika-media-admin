@@ -1,7 +1,11 @@
 <template>
-  <div class="col-1">
-    <button v-if="list.length==0 || i==list.length-1" class="btn btn-outline-primary rounded-pill w-100" type="button" @click="add"><i class="fas fa-plus"></i></button>
-    <button v-else class="btn btn-outline-danger rounded-pill w-100" type="button" @click="remove(i)"><i class="fas fa-minus"></i></button>
+  <div class="col-2 row">
+    <div class="col-6" v-if="list.length>1">
+      <button class="btn btn-outline-danger rounded-pill w-100" type="button" @click="remove(i)"><i class="fas fa-minus"></i></button>
+    </div>
+    <div class="col-6">
+      <button v-if="list.length==0 || i==list.length-1" class="btn btn-outline-primary rounded-pill w-100" type="button" @click="add"><i class="fas fa-plus"></i></button>
+    </div>
   </div>
 </template>
 <script>

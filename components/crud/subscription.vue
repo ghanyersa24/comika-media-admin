@@ -5,7 +5,7 @@
       <input-check name="Publish" label="Publish" :val="payload.isPublish" @get="(val)=>payload.isPublish=val" />
       <input-text name="name" :val="payload.name" @get="(val)=>payload.name=val" />
       <input-text name="code" :val="payload.code" @get="(val)=>payload.code=val" />
-      <input-text name="long time" :val="payload.longTime" @get="(val)=>payload.longTime=val" />
+      <input-text name="long time (day)" :val="payload.longTime" @get="(val)=>payload.longTime=val" />
       <input-text name="price" :val="payload.price" @get="(val)=>payload.price=val" />
       <input-text type="datetime-local" name="published at" :val="payload.publishedAt" @get="(val)=>payload.publishedAt=val" />
       <input-text type="datetime-local" name="available to" :val="payload.availableTo" @get="(val)=>payload.availableTo=val" />

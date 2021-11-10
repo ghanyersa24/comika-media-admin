@@ -1,7 +1,5 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
+  // ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Admin Comika Media",
@@ -41,11 +39,13 @@ export default {
       },
       { rel: "stylesheet", href: "/assets/css/style.css" },
       { rel: "stylesheet", href: "/assets/css/components.css" },
+      { rel: "stylesheet", href: "/assets/css/custom.css" },
       { rel: "stylesheet", href: "/assets/css/spinkit.css" }
     ],
     script: [
       { src: "https://code.jquery.com/jquery-3.3.1.min.js" },
       { src: "https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" },
+
       {
         src:
           "https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"
@@ -124,6 +124,7 @@ export default {
       }
     }
   },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: "https://api.comika.media/api/admin"

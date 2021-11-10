@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <input class="form-control" v-model="vInput">
-  </div>
+  <input class="form-control" v-model="vInput">
 </template>
 <script>
 export default {

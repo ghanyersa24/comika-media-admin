@@ -1854,17 +1854,17 @@ h6 .badge {
 }
 .btn-primary:focus,
 .btn-primary.disabled:focus {
-  background-color: #cc8c0b !important;
+  background-color: var(--info) !important;
 }
 .btn-primary:focus:active,
 .btn-primary.disabled:focus:active {
-  background-color: #cc8c0b !important;
+  background-color: var(--info) !important;
 }
 .btn-primary:active,
 .btn-primary:hover,
 .btn-primary.disabled:active,
 .btn-primary.disabled:hover {
-  background-color: #cc8c0b !important;
+  background-color: var(--info) !important;
 }
 
 .btn-outline-primary,
@@ -2679,7 +2679,7 @@ ul.nav-tabs li.nav-item a.nav-link.active i {
 /* 4.1 Misc */
 :root {
   /* Colors */
-  --primary: #006BC1;
+  --primary: #006bc1;
   --secondary: #34395e;
   --success: #47c363;
   --info: #3abaf4;

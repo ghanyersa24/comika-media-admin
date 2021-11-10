@@ -37,7 +37,7 @@ export default {
   methods: {
     async getDetail() {
       const request = await this.requestGet({
-        url: "users/" + this.$route.params.id,
+        url: "users/admin/" + this.$route.params.id,
       });
       this.payload = request;
     },

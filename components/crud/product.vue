@@ -9,8 +9,8 @@
       <input-cms name="description" :val="payload.description" @get="(val)=>payload.description=val" />
       <input-text name="published At" type="datetime-local" :val="payload.publishedAt" @get="(val)=>payload.publishedAt=val" />
       <input-text name="available To" type="datetime-local" :val="payload.availableTo" @get="(val)=>payload.availableTo=val" />
+      <input-list-image name="Photo Product" :list="payload.images" @get="(val)=>payload.images=val" :images="listSource" />
     </form>
-    {{listSource}}
   </div>
 </template>
 <script>
@@ -32,6 +32,7 @@ export default {
         isPublish: false,
         publishedAt: this.$moment().format("YYYY-MM-DDTHH:mm"),
         availableTo: this.$moment().format("YYYY-MM-DDTHH:mm"),
+        images: [{ thumbnail: true }],
       },
     };
   },
@@ -57,13 +58,19 @@ export default {
         url: "source",
       });
       const sources = request.map((item) => ({
-        id: item.id,
-        alt: item.name,
-        src: item.url,
+        sourceId: item.id,
+        name: item.name,
+        url: item.url,
+        thumbnail: false,
       }));
       this.listSource = [...sources, ...sources, ...sources, ...sources];
     },
     async doSubmit() {
+      const payload = this.payload;
+      payload.images = payload.images.map((item) => ({
+        sourceId: item.sourceId,
+        thumbnail: item.thumbnail || false,
+      }));
       if (this.$route.params.id) {
         const request = await this.requestPut({
           url: "store",

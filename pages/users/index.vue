@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     async getAll() {
-      const data = await this.requestGet({ url: "/users" });
+      const data = await this.requestGet({ url: "/users/admin" });
       this.rows = data;
       this.renderTable();
     },

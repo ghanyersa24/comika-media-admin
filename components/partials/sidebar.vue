@@ -68,11 +68,11 @@ export default {
               name: "Promo",
               link: "/product/promo",
             },
-            {
-              icon: "fab fa-product-hunt",
-              name: "Store",
-              link: "/product/store",
-            },
+            // {
+            //   icon: "fas fa-store",
+            //   name: "Store",
+            //   link: "/product/store",
+            // },
             {
               icon: "fas fa-images",
               name: "Image - Source",
@@ -86,12 +86,12 @@ export default {
           dropdown: true,
           menus: [
             {
-              icon: "fas fa-images",
+              icon: "fas fa-chart-bar",
               name: "Membership",
               link: "/image-source",
             },
             {
-              icon: "fas fa-images",
+              icon: "fas fa-chart-bar",
               name: "Promo",
               link: "/image-source",
             },
