@@ -3,16 +3,19 @@
     <table id="table_id" class="table table-hover table-striped">
       <thead>
         <tr>
-          <th width="13%">Action</th>
+          <th width="13%" style="text-align:center">{{!noAction?"Action":"No."}}</th>
           <th class="text-capitalize" v-for="(item,i) in thead" :key="i">{{item}}</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(row, i) in data" :key="i">
-          <td>
+          <td v-if="!noAction">
             <nuxt-link v-if="!justView" :to="'/'+to+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-edit"></i></nuxt-link>
             <button v-if="!justView" @click="onDelete(row)" type="button" class="btn btn-outline-danger"> <i class="fas fa-trash"></i> </button>
             <nuxt-link v-else :to="'/'+to+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-eye"></i></nuxt-link>
+          </td>
+          <td v-else style="text-align:center">
+            {{i+1}}
           </td>
           <td v-for="(item,idx) in thead" :key="idx" v-html="row[item]"></td>
         </tr>
@@ -24,6 +27,10 @@
 <script>
 export default {
   props: {
+    noAction: {
+      type: Boolean,
+      default: false,
+    },
     justView: {
       type: Boolean,
       default: false,

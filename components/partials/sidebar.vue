@@ -127,10 +127,16 @@ export default {
               link: "/report/register",
               role: ["admin"],
             },
+            // {
+            //   icon: "fas fa-chart-bar",
+            //   name: "Membership",
+            //   link: "/report/membership",
+            //   role: ["admin"],
+            // },
             {
               icon: "fas fa-chart-bar",
-              name: "Membership",
-              link: "/report/membership",
+              name: "Product",
+              link: "/report/product",
               role: ["admin"],
             },
             {

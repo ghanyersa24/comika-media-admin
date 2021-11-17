@@ -1,7 +1,7 @@
 <template>
   <div>
-    <crud-header no-add title="Promo Report" url="users" />
-    <datatable just-view url="report/promo" :thead="header" :data="rows" />
+    <crud-header no-add title="Product Report" url="users" />
+    <datatable just-view url="report/product" :thead="header" :data="rows" />
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     async getAll() {
-      const data = await this.requestGet({ url: "/report/data/promo" });
+      const data = await this.requestGet({ url: "/report/data/product" });
       data.map((item) => {
         item.id = item.id + "?name=" + item.name;
       });

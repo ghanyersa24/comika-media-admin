@@ -64,7 +64,7 @@ export default {
           data: this.login,
         });
         this.isLoading = false;
-        this.$router.push("/");
+        location.reload();
       } catch (err) {
         this.isLoading = false;
         this.$toast.show(err.response.data.msg);
