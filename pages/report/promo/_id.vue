@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      header: ["week", "startDate", "lastDate", "priceRp", "qty", "totalRp"],
+      header: ["week", "startDate", "lastDate", "promo", "qty", "totalRp"],
       rows: [],
     };
   },
