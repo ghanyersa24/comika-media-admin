@@ -26,12 +26,12 @@ export default {
         item.publish = item.isPublish
           ? `<i style="font-size:1.2em;" class="fas fa-star text-warning"></i>`
           : null;
-        item.publishedAt = this.$moment(item.publishedAt).format(
-          "DD MMMM YYYY HH:mm"
-        );
-        item.availableTo = this.$moment(item.availableTo).format(
-          "DD MMMM YYYY HH:mm"
-        );
+        item.publishedAt = this.$moment(item.publishedAt)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
+        item.availableTo = this.$moment(item.availableTo)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
         item.price = item.rupiah;
         return item;
       });

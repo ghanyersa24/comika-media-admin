@@ -26,7 +26,7 @@ export default {
         isPublish: false,
         publishedAt: this.$moment().format("YYYY-MM-DDTHH:mm"),
         availableTo: this.$moment().format("YYYY-MM-DDTHH:mm"),
-        description: [],
+        description: [" "],
       },
     };
   },
@@ -39,13 +39,13 @@ export default {
         url: "package/" + this.$route.params.id,
       });
       this.payload = request;
-      this.payload.publishedAt = this.$moment(request.publishedAt).format(
-        "YYYY-MM-DDTHH:mm"
-      );
+      this.payload.publishedAt = this.$moment(request.publishedAt)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
 
-      this.payload.availableTo = this.$moment(request.availableTo).format(
-        "YYYY-MM-DDTHH:mm"
-      );
+      this.payload.availableTo = this.$moment(request.availableTo)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
     },
     async doSubmit() {
       if (this.$route.params.id) {

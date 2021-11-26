@@ -28,12 +28,12 @@ export default {
           : null;
         item.discount =
           item.category == "Nominal" ? item.rupiah : item.price * 100 + " %";
-        item.publishedAt = this.$moment(item.publishedAt).format(
-          "DD MMMM YYYY HH:mm"
-        );
-        item.availableTo = this.$moment(item.availableTo).format(
-          "DD MMMM YYYY HH:mm"
-        );
+        item.publishedAt = this.$moment(item.publishedAt)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
+        item.availableTo = this.$moment(item.availableTo)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
         return item;
       });
       this.renderTable();

@@ -29,12 +29,12 @@ export default {
           : null;
         item.price = item.rupiah;
         item["long time"] = item.longTime + " hari";
-        item.publishedAt = this.$moment(item.publishedAt).format(
-          "DD MMMM YYYY HH:mm"
-        );
-        item.availableTo = this.$moment(item.availableTo).format(
-          "DD MMMM YYYY HH:mm"
-        );
+        item.publishedAt = this.$moment(item.publishedAt)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
+        item.availableTo = this.$moment(item.availableTo)
+          .subtract(7, "hours")
+          .format("DD MMMM YYYY HH:mm");
         return item;
       });
       this.renderTable();

@@ -57,12 +57,12 @@ export default {
       });
       this.payload = request;
       if (request.category == "Percent") this.payload.price *= 100;
-      this.payload.publishedAt = this.$moment(request.publishedAt).format(
-        "YYYY-MM-DDTHH:mm"
-      );
-      this.payload.availableTo = this.$moment(request.availableTo).format(
-        "YYYY-MM-DDTHH:mm"
-      );
+      this.payload.publishedAt = this.$moment(request.publishedAt)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
+      this.payload.availableTo = this.$moment(request.availableTo)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
     },
     async doSubmit() {
       const payload = this.payload;
