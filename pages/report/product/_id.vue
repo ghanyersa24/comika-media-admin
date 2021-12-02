@@ -16,7 +16,7 @@ export default {
   methods: {
     async getAll() {
       const data = await this.requestGet({
-        url: "/report/product/product/" + this.$route.params.id,
+        url: "/report/product/" + this.$route.params.id,
       });
       this.rows = data;
       if (process.browser) {
