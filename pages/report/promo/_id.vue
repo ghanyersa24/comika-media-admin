@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link to="/report/product" type="button" class="btn btn-outline-secondary mb-3"> <i class="fas fa-arrow-left"></i> Back</nuxt-link>
+    <nuxt-link to="/report/promo" type="button" class="btn btn-outline-secondary mb-3"> <i class="fas fa-arrow-left"></i> Back</nuxt-link>
     <crud-header no-add :title="`Promo <span class='text-warning'>${$route.query.name}</span> Report`" url="users" />
     <datatable no-action url="report/promo" :thead="header" :data="rows" />
   </div>

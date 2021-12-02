@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      header: ["name", "priceRp", "qty", "totalRp"],
+      header: ["name", "promo", "qty", "totalRp"],
       rows: [],
     };
   },
@@ -17,6 +17,11 @@ export default {
       const data = await this.requestGet({ url: "/report/data/promo" });
       data.map((item) => {
         item.id = item.id + "?name=" + item.name;
+        if (item.price <= 100) {
+          item.promo = item.price + "%";
+        } else {
+          item.promo = item.priceRp;
+        }
       });
       this.rows = data;
       if (process.browser) {
