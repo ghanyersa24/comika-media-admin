@@ -7,8 +7,6 @@
       <input-text v-if="!$route.params.id" name="password" type="password" :val="payload.password" @get="(val)=>payload.password=val" />
       <input-text name="phone" type="number" :val="payload.phone" @get="(val)=>payload.phone=val" />
       <input-options name="role" :options="roles" :val="payload.role" @get="(val)=>payload.role=val" />
-      <input-check name="status" />
-      <input-options name="OPSI" />
     </form>
 
   </div>
