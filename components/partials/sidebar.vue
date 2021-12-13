@@ -102,11 +102,12 @@ export default {
               link: "/product/promo",
               role: ["admin"],
             },
-            // {
-            //   icon: "fas fa-store",
-            //   name: "Store",
-            //   link: "/product/store",
-            // },
+            {
+              icon: "fas fa-store",
+              name: "Store",
+              link: "/product/store",
+              role: ["admin"],
+            },
             {
               icon: "fas fa-images",
               name: "Image - Source",

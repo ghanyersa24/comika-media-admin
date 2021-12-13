@@ -4,9 +4,8 @@
       <div class="col-md-6">
         <list-img :i="i" :key="i" :images="images" :val="item" @get="val=>updateInput(val,i)" />
       </div>
-      <list-button :i="i" :list="list" @get="(val)=>$emit('get',val)" />
-      <div class="col">
-        {{item.thumbnail?"TRUE":"FALSE"}} {{item}}
+      <div>
+        <list-button :i="i" :list="list" @get="(val)=>$emit('get',val)" />
       </div>
     </div>
   </input-custom>

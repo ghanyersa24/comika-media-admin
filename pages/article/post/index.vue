@@ -1,7 +1,7 @@
 <template>
   <div>
-    <crud-header title="article" url="article/post" />
-    <datatable url="article/post" :thead="header" :data="rows" attrDel="name" @onDelete="(val)=>{getAll()}" />
+    <crud-header title="Article" url="article/post" />
+    <datatable direct="article/post" url="article" :thead="header" :data="rows" attrDel="title" @onDelete="(val)=>{getAll()}" />
   </div>
 </template>
 <script>

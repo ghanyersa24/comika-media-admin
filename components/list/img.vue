@@ -3,9 +3,6 @@
     <div class="col-3">
       <img v-if="val.url" :src="val.url" :alt="val.name" width="100" height="100">
     </div>
-    <div class="col-2">
-      <input type="radio" class="form-control" :checked="val.thumbnail" name="image" @click="setThumbnail">
-    </div>
     <div class="col">
       <select class="form-control" v-model="choseImg">
         <option selected disabled value="">-choose one-</option>
@@ -13,6 +10,9 @@
           {{option.name}}
         </option>
       </select>
+      <div v-if="i==0" class="ml-3">
+        Thumbnail
+      </div>
     </div>
   </div>
 </template>

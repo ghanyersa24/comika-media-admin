@@ -28,11 +28,11 @@ export default {
         category: "Digital Produk",
         price: 0,
         description: null,
-        images: [],
+        images: [{}],
         isPublish: false,
         publishedAt: this.$moment().format("YYYY-MM-DDTHH:mm"),
         availableTo: this.$moment().format("YYYY-MM-DDTHH:mm"),
-        images: [{ thumbnail: true }],
+        images: [{ sourceId: null }],
       },
     };
   },
@@ -61,16 +61,10 @@ export default {
         sourceId: item.id,
         name: item.name,
         url: item.url,
-        thumbnail: false,
       }));
-      this.listSource = [...sources, ...sources, ...sources, ...sources];
+      this.listSource = sources;
     },
     async doSubmit() {
-      const payload = this.payload;
-      payload.images = payload.images.map((item) => ({
-        sourceId: item.sourceId,
-        thumbnail: item.thumbnail || false,
-      }));
       if (this.$route.params.id) {
         const request = await this.requestPut({
           url: "store",
