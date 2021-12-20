@@ -26,7 +26,7 @@
 export default {
   mounted() {
     if (process.browser) {
-      // this.$router.push("/");
+      this.$router.push("/");
     }
   },
 };
