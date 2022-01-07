@@ -3,12 +3,13 @@
     <form @submit.prevent="doSubmit">
       <form-save title="Product" />
       <input-check name="publish" label="Publish" :val="payload.isPublish" @get="(val)=>payload.isPublish=val" />
+      <input-text name="published At" type="datetime-local" :val="payload.publishedAt" @get="(val)=>payload.publishedAt=val" />
+      <input-text name="available To" type="datetime-local" :val="payload.availableTo" @get="(val)=>payload.availableTo=val" />
       <input-text name="name" :val="payload.name" @get="(val)=>payload.name=val" />
       <input-options name="category" :options="listCategory" :val="payload.category" @get="(val)=>payload.category=val" />
       <input-text name="price (Rp)" type="number" :val="payload.price" @get="(val)=>payload.price=val" />
+      <input-text name="Redirect page" type="url" no-required :val="payload.redirect" @get="(val)=>payload.redirect=val" />
       <input-cms name="description" :val="payload.description" @get="(val)=>payload.description=val" />
-      <input-text name="published At" type="datetime-local" :val="payload.publishedAt" @get="(val)=>payload.publishedAt=val" />
-      <input-text name="available To" type="datetime-local" :val="payload.availableTo" @get="(val)=>payload.availableTo=val" />
       <input-list-image name="Photo Product" :list="payload.images" @get="(val)=>payload.images=val" :images="listSource" />
     </form>
   </div>
@@ -29,6 +30,7 @@ export default {
         price: 0,
         description: null,
         images: [{}],
+        redirect: "",
         isPublish: false,
         publishedAt: this.$moment().format("YYYY-MM-DDTHH:mm"),
         availableTo: this.$moment().format("YYYY-MM-DDTHH:mm"),
@@ -46,12 +48,13 @@ export default {
         url: "store/" + this.$route.params.id,
       });
       this.payload = request;
-      this.payload.publishedAt = this.$moment(request.publishedAt).format(
-        "YYYY-MM-DDTHH:mm"
-      );
-      this.payload.availableTo = this.$moment(request.availableTo).format(
-        "YYYY-MM-DDTHH:mm"
-      );
+      // set to GMT+7
+      this.payload.publishedAt = this.$moment(request.publishedAt)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
+      this.payload.availableTo = this.$moment(request.availableTo)
+        .subtract(7, "hours")
+        .format("YYYY-MM-DDTHH:mm");
     },
     async getSource() {
       const request = await this.requestGet({
