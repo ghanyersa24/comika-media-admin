@@ -1,42 +1,48 @@
 <template>
-  <date-range-picker ref="picker" :opens="opens" :locale-data="{ firstDay: 1, format: 'dd-mm-yyyy HH:mm:ss' }" :minDate="minDate" :maxDate="maxDate" :singleDatePicker="singleDatePicker" :timePicker="timePicker" :timePicker24Hour="timePicker24Hour" :showWeekNumbers="showWeekNumbers" :showDropdowns="showDropdowns" :autoApply="autoApply" v-model="dateRange" @update="updateValues" @toggle="logEvent('event: open', $event)" @start-selection="logEvent('event: startSelection', $event)" @finish-selection="logEvent('event: finishSelection', $event)" :linkedCalendars="linkedCalendars">
-    <template v-slot:input="picker" style="min-width: 350px;">
-      {{ picker.startDate | date }} - {{ picker.endDate | date }}
-    </template>
-  </date-range-picker>
+  <div>
+    <input-custom :name="name">
+      <input :id="idName" type="text" class="form-control" name="dates" />
+    </input-custom>
+  </div>
 </template>
 <script>
-import DateRangePicker from "vue2-daterange-picker";
-import "vue2-daterange-picker/dist/vue2-daterange-picker.css";
-
 export default {
-  components: { DateRangePicker },
-  data() {
-    return {
-      dateRange: {
-        start: this.$moment().subtract(1, "month"),
-        end: this.$moment(),
-      },
-      opens: "center",
-      minDate: this.$moment().subtract(1, "month"),
-      maxDate: this.$moment(),
-      singleDatePicker: false,
-      timePicker: false,
-      timePicker24Hour: false,
-      showWeekNumbers: false,
-      showDropdowns: false,
-      autoApply: false,
-      linkedCalendars: false,
-      // dateFormat: "DD-MM-YYYY HH:mm:ss",
-    };
+  props: {
+    name: String,
+    val: {
+      type: Object,
+      default: () => ({
+        start: this.$moment().startOf("month").format("YYYY-MM-DD"),
+        end: this.$moment().endOf("month").format("YYYY-MM-DD"),
+      }),
+    },
+  },
+  computed: {
+    idName() {
+      return this.name.replace(/ /g, "");
+    },
+    value() {
+      // return this.val.start + " - " + this.val.end;
+    },
+  },
+  mounted() {
+    if (process.browser) {
+      const emit = this.get;
+      $(`#${this.idName}`).daterangepicker(
+        {
+          startDate: this.$moment(this.val.start),
+          endDate: this.$moment(this.val.end),
+        },
+        emit
+      );
+    }
   },
   methods: {
-    updateValues(value) {
-      this.dateRange = value;
-      this.logEvent("event: update", value);
-    },
-    logEvent(event, value) {
-      console.log(event, value);
+    get(start, end) {
+      return this.$emit("get", {
+        start: this.$moment(start).format("YYYY-MM-DD"),
+        end: this.$moment(end).format("YYYY-MM-DD"),
+      });
     },
   },
 };

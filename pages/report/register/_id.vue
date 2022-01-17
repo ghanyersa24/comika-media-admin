@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form-save title="Register" just-view />
+    <form-save title="Register" view-only />
     <input-text disabled name="name" :val="payload.name" @get="(val)=>payload.name=val" />
     <input-text disabled name="email" type="email" :val="payload.email" />
     <input-text disabled name="phone" type="number" :val="payload.phone" />

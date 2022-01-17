@@ -57,7 +57,6 @@ export default {
           link: "/",
           role: ["writer", "admin"],
         },
-
         {
           icon: "fab fa-adversal",
           name: "Jumbotron",
@@ -115,6 +114,12 @@ export default {
               role: ["admin"],
             },
           ],
+        },
+        {
+          icon: "fas fa-cart-arrow-down",
+          name: "Orders",
+          link: "/orders",
+          role: ["admin"],
         },
         {
           icon: "fas fa-project-diagram",

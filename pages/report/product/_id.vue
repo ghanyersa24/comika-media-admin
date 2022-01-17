@@ -3,6 +3,7 @@
     <nuxt-link to="/report/product" type="button" class="btn btn-outline-secondary mb-3"> <i class="fas fa-arrow-left"></i> Back</nuxt-link>
     <crud-header no-add :title="`Product <span class='text-warning'>${$route.query.name}</span> Report`" url="users" />
     <datatable no-action url="report/promo" :thead="header" :data="rows" />
+    <chart-line v-if="isShowData" :chartData="reportProduct" :height="100" />
   </div>
 </template>
 <script>
@@ -11,6 +12,16 @@ export default {
     return {
       header: ["week", "startDate", "lastDate", "priceRp", "qty", "totalRp"],
       rows: [],
+      isShowData: false,
+      reportProduct: {
+        labels: ["Product"],
+        datasets: [
+          {
+            label: "Terjual",
+            backgroundColor: [],
+          },
+        ],
+      },
     };
   },
   methods: {

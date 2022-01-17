@@ -10,8 +10,8 @@
       <tbody>
         <tr v-for="(row, i) in data" :key="i">
           <td v-if="!noAction">
-            <nuxt-link v-if="!justView" :to="'/'+to+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-edit"></i></nuxt-link>
-            <button v-if="!justView" @click="onDelete(row)" type="button" class="btn btn-outline-danger"> <i class="fas fa-trash"></i> </button>
+            <nuxt-link v-if="!viewOnly" :to="'/'+to+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-edit"></i></nuxt-link>
+            <button v-if="!viewOnly" @click="onDelete(row)" type="button" class="btn btn-outline-danger"> <i class="fas fa-trash"></i> </button>
             <nuxt-link v-else :to="'/'+to+'/'+row.id" class="btn btn-outline-primary"><i class="fas fa-eye"></i></nuxt-link>
           </td>
           <td v-else style="text-align:center">
@@ -31,7 +31,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    justView: {
+    viewOnly: {
       type: Boolean,
       default: false,
     },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <crud-header no-add title="Promo Report" url="users" />
-    <datatable just-view url="report/promo" :thead="header" :data="rows" />
+    <datatable view-only url="report/promo" :thead="header" :data="rows" />
   </div>
 </template>
 <script>
@@ -17,7 +17,7 @@ export default {
       const data = await this.requestGet({ url: "/report/data/promo" });
       data.map((item) => {
         item.id = item.id + "?name=" + item.name;
-        if (item.price <= 100) {
+        if (item.price && item.price <= 100) {
           item.promo = item.price + "%";
         } else {
           item.promo = item.priceRp;

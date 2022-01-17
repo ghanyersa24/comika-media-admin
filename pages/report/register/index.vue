@@ -1,7 +1,7 @@
 <template>
   <div>
     <crud-header no-add title="Register" url="users" />
-    <datatable just-view url="report/register" :thead="header" :data="rows" />
+    <datatable view-only url="report/register" :thead="header" :data="rows" />
   </div>
 </template>
 <script>
