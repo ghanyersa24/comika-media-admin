@@ -30,12 +30,17 @@
         </tr>
       </tbody>
     </table>
-    <button @click="loadMore" class="btn btn-outline-primary rounded-pill">
+    <button
+      :disabled="!listNotification.length"
+      @click="loadMore"
+      class="btn btn-outline-primary rounded-pill"
+    >
       Load more
     </button>
     <button
+      :disabled="!checked.length"
       @click="readAllNotification"
-      class="btn btn-outline-light text-secondary rounded-pill"
+      class="btn btn-outline-light text-primary rounded-pill"
     >
       Read
     </button>
@@ -48,14 +53,14 @@ export default {
       listNotification: [],
       page: 1,
       checked: [],
-      checkedAll: false
+      checkedAll: false,
     };
   },
   watch: {
     checkedAll(val) {
       if (val) {
         this.checked = [];
-        this.listNotification.forEach(item => {
+        this.listNotification.forEach((item) => {
           this.checked.push(item.id);
         });
       } else {
@@ -68,7 +73,7 @@ export default {
       } else {
         this.checkedAll = false;
       }
-    }
+    },
   },
   mounted() {
     this.getNotification();
@@ -84,33 +89,35 @@ export default {
         params: {
           limit: 5,
           page: this.page,
-          type: "komentar"
-        }
+          type: "komentar",
+        },
       });
       if (request.length) this.listNotification.push(...request);
       else {
-        this.page--;
-        this.$toast.error("No more data");
+        if (this.page > 1) {
+          this.page--;
+          this.$toast.error("No more data");
+        }
       }
     },
     async readNotification(item) {
       const request = await this.requestPost({
         url: "/notification/read-all",
         data: {
-          ids: [item.id]
+          ids: [item.id],
         },
-        notify: false
+        notify: false,
       });
-      window.open(item.link, "_blank");
+      window.open("https://comika.media/" + item.link, "_blank");
       this.resetNotification();
     },
     async readAllNotification() {
       const request = await this.requestPost({
         url: "/notification/read-all",
         data: {
-          ids: this.checked
+          ids: this.checked,
         },
-        notify: false
+        notify: false,
       });
       this.checked = [];
       this.resetNotification();
@@ -121,11 +128,11 @@ export default {
         params: {
           limit: 5 * this.page,
           page: 1,
-          type: "komentar"
-        }
+          type: "komentar",
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
